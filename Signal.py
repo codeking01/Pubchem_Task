@@ -8,6 +8,9 @@ from PySide6.QtCore import QObject, Signal
 
 
 class MySignal(QObject):
-    GenerateNums=Signal()
+    SetGenState=Signal(str)
+    popMeg=Signal(str)
+    # SetConvertState=Signal(str)
+    SetlabelValue=Signal(str,object)
 
 my_signal=MySignal()

@@ -6,21 +6,29 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>716</width>
-    <height>500</height>
+    <width>781</width>
+    <height>582</height>
    </rect>
   </property>
   <property name="cursor">
    <cursorShape>ArrowCursor</cursorShape>
   </property>
+  <property name="tabletTracking">
+   <bool>false</bool>
+  </property>
   <property name="contextMenuPolicy">
    <enum>Qt::NoContextMenu</enum>
   </property>
   <property name="windowTitle">
-   <string>pubchem数据转化工具V1.0</string>
+   <string>pubchem数据转化工具V1.1</string>
   </property>
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#centralwidget{
+border-image: url(&quot;./img/a.jpg&quot;);
+}</string>
   </property>
   <widget class="QLabel" name="ConvertState">
    <property name="enabled">
@@ -53,8 +61,8 @@
   <widget class="QLabel" name="Convert2DState">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>240</y>
+     <x>380</x>
+     <y>340</y>
      <width>91</width>
      <height>21</height>
     </rect>
@@ -81,8 +89,8 @@
   <widget class="QLabel" name="Convert3DState">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>240</y>
+     <x>510</x>
+     <y>340</y>
      <width>91</width>
      <height>21</height>
     </rect>
@@ -137,8 +145,8 @@
   <widget class="QPushButton" name="Save2DMolButton">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>180</y>
+     <x>370</x>
+     <y>280</y>
      <width>121</width>
      <height>24</height>
     </rect>
@@ -150,8 +158,8 @@
   <widget class="QPushButton" name="Save3DMolButton">
    <property name="geometry">
     <rect>
-     <x>490</x>
-     <y>180</y>
+     <x>500</x>
+     <y>280</y>
      <width>121</width>
      <height>24</height>
     </rect>
@@ -163,8 +171,8 @@
   <widget class="QLabel" name="ConvertPicState">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>320</y>
+     <x>290</x>
+     <y>420</y>
      <width>91</width>
      <height>21</height>
     </rect>
@@ -248,7 +256,7 @@
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="text">
-     <string>默认保存在D:/DATA/ALL_Excel</string>
+     <string>默认保存在I:/DATA/ALL_Excel</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -258,8 +266,8 @@
   <widget class="QSplitter" name="splitter_2">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>210</y>
+     <x>50</x>
+     <y>310</y>
      <width>550</width>
      <height>24</height>
     </rect>
@@ -322,8 +330,8 @@
   <widget class="QSplitter" name="splitter_4">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>290</y>
+     <x>70</x>
+     <y>390</y>
      <width>480</width>
      <height>24</height>
     </rect>
@@ -356,7 +364,7 @@
    </widget>
    <widget class="QLabel" name="label_5">
     <property name="text">
-     <string>默认保存D:/DATA/ALL_Pic</string>
+     <string>默认保存I:/DATA/ALL_Pic</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -438,10 +446,104 @@
    </widget>
    <widget class="QLabel" name="label_7">
     <property name="text">
-     <string>默认保存在D:/DATA/nums.txt</string>
+     <string>默认保存在I:/DATA/nums.txt</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="GenFinalExcelState">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>230</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ForbiddenCursor</cursorShape>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::WinPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="text">
+    <string>还未生成</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="GenFinalTxtState">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>230</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ForbiddenCursor</cursorShape>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::WinPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="text">
+    <string>还未生成</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QSplitter" name="splitter_6">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>200</y>
+     <width>732</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <widget class="QLabel" name="label_8">
+    <property name="text">
+     <string>导出存在cas的Excel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="SelectSpecialExcelBtn">
+    <property name="text">
+     <string>选择指定Excel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="GenFinalExcelButton">
+    <property name="text">
+     <string>生成最终Excel(Cas全有)</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="GenSpecialTxtBtn">
+    <property name="text">
+     <string>生成txt文件(在ALLNums)</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="text">
+     <string>默认保存在I:/DATA/ALL_Excel</string>
     </property>
    </widget>
   </widget>

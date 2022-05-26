@@ -10,6 +10,43 @@ import re
 import openpyxl
 from pandas import read_csv
 
+# 提取cas号到指定的Excel中
+def ExtractFinalExcel(excel_path):
+    try:
+        # 读取excel的某列，全部读取出来，然后根据正则去取出cas号
+        read_path = excel_path
+        # 读取的excel的对象
+        wb = openpyxl.load_workbook(read_path)
+        # 需要存储的excel的路径
+        finalExcelPath=read_path.split('.xlsx')[0]+'Final.xlsx'
+        # 新建的excel的对象
+        Final_wb = openpyxl.Workbook()
+    except Exception as e:
+        print('未知错误,错误原因：', e)
+    else:
+        # 取第一张表名
+        sheetnames = wb.sheetnames
+        # 获取第一张表
+        ws = wb[sheetnames[0]]
+        # 获取需要保存的Excel的第一张表
+        Lastsheetnames = Final_wb.sheetnames
+        FinalWS=Final_wb[Lastsheetnames[0]]
+        rows = ws.max_row
+        max_column = ws.max_column
+        NewExcelIndex=1
+        # 将所有的有cas号的全部存储到新的Excel中
+        for index in range(2, rows + 1):
+            TheCid=int(ws.cell(row=index, column=2).value)
+            TheCas=ws.cell(row=index, column=max_column).value
+            # 需要判断这个cas号存在
+            if(TheCas!=None):
+                # 写入到新的Excel文件中
+                FinalWS.cell(NewExcelIndex,2,TheCid)
+                FinalWS.cell(NewExcelIndex,3,f"{TheCas}")
+                NewExcelIndex+=1
+        # 保存excel
+        Final_wb.save(finalExcelPath)
+
 
 def ConvertToExcel(path_name):
     csv_path = '{name}'.format(name=str(path_name))
@@ -18,6 +55,7 @@ def ConvertToExcel(path_name):
     path_name = path_name.split('.')[0]
     excel_path = '{path_name}.xlsx'.format(path_name=str(path_name))
     data.to_excel(excel_path)
+
 
 # 存储cas号到excel中
 def AddCasToExcel(excel_path):
@@ -36,7 +74,6 @@ def AddCasToExcel(excel_path):
         max_column = ws.max_column
         # 获取所有cas的数据 用cas_list存储（列表）
         cas_list = []
-
 
         # 定义正则规则
         cas_pattern = re.compile(r"\|(\d{2,7}-\d{2}-\d{1})\||\|CAS-(\d{2,7}-\d{2}-\d{1})\|")
@@ -86,6 +123,7 @@ def AddCasToExcel(excel_path):
                             ws.cell(index, max_column + 1, '{data}'.format(data=cas[0]))
         wb.save(excel_path)
         print("excel的cas全部存储完毕！")
+
 
 # 存储cas号到excel中
 def GetCaslist(excel_path):
