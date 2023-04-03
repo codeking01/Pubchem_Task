@@ -51,7 +51,7 @@ def ExtractFinalExcel(excel_path):
 def ConvertToExcel(path_name):
     csv_path = '{name}'.format(name=str(path_name))
     f = open(csv_path, encoding='utf-8')
-    data = read_csv(f)
+    data = read_csv(f,low_memory=False)
     path_name = path_name.split('.')[0]
     excel_path = '{path_name}.xlsx'.format(path_name=str(path_name))
     data.to_excel(excel_path)

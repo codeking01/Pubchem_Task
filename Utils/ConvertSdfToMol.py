@@ -61,11 +61,11 @@ def save_mol(savefilepath, data, temp_list,saved_caslist,cas_list,current_index)
                 saved_caslist.append(data)
     except Exception as e:
         # 考虑将失败的数据存入日志文件中
-        with open('./log/{cas}.log'.format(cas='fail_sdf'), encoding='utf-8', mode='a') as file:
-            # 将转化失败的存入日志中
-            file.write(str(cas_list[current_index]))
-            file.write('\n**失败原因：' + str(e) + '\n')
-            file.close()
+        # with open('../log/{cas}.log'.format(cas='fail_sdf'), encoding='utf-8', mode='a') as file:
+        #     # 将转化失败的存入日志中
+        #     file.write(str(cas_list[current_index]))
+        #     file.write('\n**失败原因：' + str(e) + '\n')
+        #     file.close()
         print('\n****cas名称不合法，或者保存路径有误，请检查，失败原因{e}\n'.format(e=e))
 
 
@@ -86,12 +86,12 @@ def IsNotEmpty(func):
             else:
                 print('cas号不存在!')
         else:
-            with open('./log/{cas}.log'.format(cas='fail_sdf'), encoding='utf-8', mode='a') as file:
-                # 将转化失败的存入日志中
-                file.write(str(sdf_cid))
-                file.write('\n**失败原因: cid不在excel表里面！' + '\n')
-                file.close()
-            print('cid号不在当前字典中!')
+            # with open('../log/{cas}.log'.format(cas='fail_sdf'), encoding='utf-8', mode='a') as file:
+            #     # 将转化失败的存入日志中
+            #     file.write(str(sdf_cid))
+            #     file.write('\n**失败原因: cid不在excel表里面！' + '\n')
+            #     file.close()
+            print(f"cid号不在当前字典中!")
     return wrapper
 
 

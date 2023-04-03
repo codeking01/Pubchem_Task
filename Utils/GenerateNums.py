@@ -25,8 +25,8 @@ def GenTxt(excel_path):
         rows = ws.max_row
         max_column = ws.max_column
         NumsList=[]
-        # 依次取出里面的cas号
-        for index in range(2, rows + 1):
+        # 依次取出里面的cas号(从第一行开始取出来)
+        for index in range(1, rows + 1):
             TheCid=int(ws.cell(row=index, column=2).value)
             NumsList.append(TheCid)
         IteratorLength=len(NumsList)
